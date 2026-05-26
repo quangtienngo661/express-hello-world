@@ -39,3 +39,11 @@ jobs:
 
             - name : Run Docker container
               run: docker compose up -d
+
+            - name: Notify on success
+              if: success()
+              run: echo "CI Pipeline passed successfully!"
+              
+            - name: Notify on failure
+              if: failure()
+              run: echo "CI Pipeline failed! Please check the logs."
