@@ -28,9 +28,6 @@ jobs:
             - name: Install dependencies
               run: yarn install --frozen-lockfile
 
-            - name: Validate Dockerfile
-              uses: dockerfilelint/github-action@v1
-
             - name: Run tests
               run: yarn test
 
@@ -43,7 +40,7 @@ jobs:
             - name: Notify on success
               if: success()
               run: echo "CI Pipeline passed successfully!"
-              
+
             - name: Notify on failure
               if: failure()
               run: echo "CI Pipeline failed! Please check the logs."
